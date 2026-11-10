@@ -1,7 +1,5 @@
 package com.sevtinge.hyperceiler.home.task;
 
-import static com.sevtinge.hyperceiler.utils.NoticeProcessor.isNeedShowTosDialog;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -85,11 +83,6 @@ public class AppTaskManager {
                 new Thread(() -> {
                     NoticeProcessor.NoticeResult result = NoticeProcessor.process(context);
                     if (result != null) {
-                        if (isNeedShowTosDialog(result)) {
-                            new Handler(Looper.getMainLooper()).post(() -> {
-                                NoticeProcessor.showTosDialog(context, result);
-                            });
-                        }
                         if (result.id() != -100) {
                             new Handler(Looper.getMainLooper()).post(() -> {
                                 NoticeProcessor.showNoticeDialog(context, result);
