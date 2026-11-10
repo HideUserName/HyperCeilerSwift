@@ -68,7 +68,7 @@ public class StateMachine {
         addState(mCompleteState);
 
         setNextState(mCurrentState, mPermissionState);
-        setNextState(mPermissionState, mTermsAndStatementState);
+        setNextState(mPermissionState, mBasicState);
         setNextState(mTermsAndStatementState, mBasicState);
         setNextState(mBasicState, mCompleteState);
     }
